@@ -1,5 +1,8 @@
 # AI 툴메이커 핸즈온 — 개발 메모
 
+> 작업을 시작하기 전에 `docs/작업_인수인계.md`(현재 상태·결정 사항·작업 로그)를 먼저 읽고,
+> 작업을 마치면 그 문서의 '작업 로그'에 날짜별로 한 일과 남은 일을 추가할 것.
+
 ## 개요
 - 비개발자 대상 '나만의 AI 도구 만들기' 4주 핸즈온 교육 웹앱. 수강생·강사 모두 한국어 UI.
 - Next.js 15 App Router + Tailwind 4. 미들웨어 없음 — 인증은 각 layout/page(`requireLearner`, `requireAdmin`)와 API(`apiLearner`, `apiAdmin`)에서 확인.
