@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-mono: "JetBrains Mono", "D2Coding", Consolas, monospace;
+
+  --color-ink: #161a2e;
+  --color-ink-2: #4a5068;
+  --color-ink-3: #8a8fa6;
+  --color-line: #e3e5ee;
+  --color-line-2: #eef0f6;
+  --color-paper: #ffffff;
+  --color-canvas: #f5f6fa;
+
+  --color-brand: #23307a;
+  --color-brand-2: #3a4bb0;
+  --color-brand-soft: #e9ecfb;
+  --color-accent: #ee7d16;
+  --color-accent-soft: #fff1e3;
+  --color-ok: #188a55;
+  --color-ok-soft: #e4f6ec;
+  --color-warn: #b7791f;
+  --color-danger: #c2384b;
+  --color-danger-soft: #fdecef;
+}
+
+html,
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-2);
+  outline-offset: 2px;
+}
+
+textarea {
+  field-sizing: content;
+}
+
+/* 입력 공통 */
+.input {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input:focus {
+  outline: none;
+  border-color: var(--color-brand-2);
+  box-shadow: 0 0 0 3px rgb(58 75 176 / 0.12);
+}
+.input::placeholder {
+  color: var(--color-ink-3);
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink-2);
+  margin-bottom: 6px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 10px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, opacity 0.15s;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--color-brand);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-brand-2);
+}
+.btn-accent {
+  background: var(--color-accent);
+  color: #fff;
+}
+.btn-accent:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+.btn-ghost {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+}
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--color-ink-3);
+}
+.btn-soft {
+  background: var(--color-brand-soft);
+  color: var(--color-brand);
+}
+.btn-soft:hover:not(:disabled) {
+  background: #dde2fa;
+}
+.btn-sm {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 13px;
+  background: #fff;
+  color: var(--color-ink-2);
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.chip[data-on="true"] {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #fff;
+}
+
+/* 발표·수업 슬라이드 */
+.slide-root {
+  container-type: inline-size;
+}
+.slide {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  font-size: 2.2cqw;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+
+.prose-pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
