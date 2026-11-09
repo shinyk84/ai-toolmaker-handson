@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { STEPS } from "@/lib/workspace";
 
 export function Modal({ open, onClose, title, children, wide }: { open: boolean; onClose: () => void; title: string; children: React.ReactNode; wide?: boolean }) {
   useEffect(() => {
@@ -72,6 +73,9 @@ export function StepHeader({ no, title, desc, right }: { no: number; title: stri
   return (
     <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
       <div>
+        <div className="mb-1.5 inline-flex rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-bold text-accent">
+          {STEPS[no - 1]?.week} 수업
+        </div>
         <h1 className="text-2xl font-black tracking-tight">
           {no}단계 · {title}
         </h1>

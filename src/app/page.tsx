@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getSession } from "@/lib/auth";
-import { STEPS } from "@/lib/workspace";
+import { STEPS, WEEK_PLAN } from "@/lib/workspace";
 import { DECKS } from "@/content/decks";
 
 export default async function Home() {
@@ -36,29 +36,29 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 pb-14">
-        <h2 className="mb-4 text-sm font-bold tracking-widest text-ink-3">워크스페이스 6단계</h2>
-        <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
-          {STEPS.map((st) => (
-            <li key={st.no} className="card p-4">
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-brand text-sm font-bold text-white">{st.no}</div>
-              <div className="mt-3 font-bold">{st.title}</div>
-              <div className="text-sm text-ink-3">{st.sub}</div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
       <section className="mx-auto max-w-6xl px-5 pb-20">
-        <h2 className="mb-4 text-sm font-bold tracking-widest text-ink-3">주차별 수업</h2>
-        <div className="grid gap-3 md:grid-cols-2">
-          {DECKS.map((d) => (
-            <Link key={d.id} href={`/class/${d.week}`} className="card group p-5 transition hover:border-brand-2">
-              <div className="text-xs font-bold text-accent">{d.week}주차</div>
-              <div className="mt-1 text-lg font-bold group-hover:text-brand">{d.title.replace(/^\d주차 · /, "")}</div>
-              <div className="mt-1 text-sm text-ink-3">{d.subtitle}</div>
-            </Link>
-          ))}
+        <h2 className="mb-1 text-sm font-bold tracking-widest text-ink-3">4주 수업 × 워크스페이스 6단계</h2>
+        <p className="mb-4 text-sm text-ink-3">매주 수업(PT)을 듣고, 웹앱에서 해당 단계를 진행합니다.</p>
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+          {WEEK_PLAN.map((wk) => {
+            const d = DECKS.find((x) => x.week === wk.week);
+            return (
+              <Link key={wk.week} href={`/class/${wk.week}`} className="card group flex flex-col p-5 transition hover:border-brand-2">
+                <div className="text-xs font-bold text-accent">{wk.week}주차</div>
+                <div className="mt-1 text-lg font-bold leading-snug group-hover:text-brand">{wk.title}</div>
+                {d && <div className="mt-1 text-xs text-ink-3">{d.subtitle}</div>}
+                <div className="mt-auto space-y-1.5 pt-4">
+                  {wk.steps.map((n) => (
+                    <div key={n} className="flex items-center gap-2 text-sm">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-xs font-bold text-white">{n}</span>
+                      <span className="font-semibold">{STEPS[n - 1].title}</span>
+                      <span className="text-xs text-ink-3">{STEPS[n - 1].sub}</span>
+                    </div>
+                  ))}
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </main>

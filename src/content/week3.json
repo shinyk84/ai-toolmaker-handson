@@ -15,18 +15,41 @@
       "kicker": "AI 툴메이커 핸즈온 · 3주차",
       "title": "배포하고,\n데이터를 붙인다",
       "subtitle": "내 PC 밖으로 — 링크 하나로 누구나 쓰는 도구",
-      "meta": "오늘의 목표: GitHub 푸시 + Vercel 배포 링크"
+      "meta": "웹앱 워크스페이스 5단계 (제작 기록: 배포·성과)"
     },
     {
       "type": "agenda",
-      "title": "오늘의 진행",
+      "title": "오늘의 진행 · 웹앱 5단계",
       "items": [
-        { "time": "0:00", "t": "지난주 리뷰", "d": "v0.1 공유 · 막힌 점" },
-        { "time": "0:20", "t": "Git & GitHub", "d": "세이브 포인트 · 레포지토리 · 푸시" },
-        { "time": "1:00", "t": "실습 · 연습 페이지 배포", "d": "자기소개 웹페이지 → GitHub → Vercel" },
-        { "time": "1:40", "t": "실습 · 내 도구 배포", "d": "배포 오류 해결 루프" },
-        { "time": "2:30", "t": "데이터 저장 · AI API", "d": "어디에 저장할까 · 키 관리" },
-        { "time": "3:10", "t": "제작 기록 · 진도 공유" }
+        {
+          "time": "0:00",
+          "t": "지난주 리뷰",
+          "d": "v0.1 공유 · 막힌 점"
+        },
+        {
+          "time": "0:20",
+          "t": "Git & GitHub",
+          "d": "세이브 포인트 · 레포지토리 · 푸시"
+        },
+        {
+          "time": "1:00",
+          "t": "실습 · 연습 페이지 배포",
+          "d": "자기소개 웹페이지 → GitHub → Vercel"
+        },
+        {
+          "time": "1:40",
+          "t": "실습 · 내 도구 배포",
+          "d": "배포 오류 해결 루프"
+        },
+        {
+          "time": "2:30",
+          "t": "데이터 저장 · AI API",
+          "d": "어디에 저장할까 · 키 관리"
+        },
+        {
+          "time": "3:10",
+          "t": "제작 기록 · 진도 공유"
+        }
       ]
     },
     {
@@ -38,13 +61,37 @@
     {
       "type": "table",
       "title": "꼭 알아야 할 Git 용어 5개",
-      "head": ["용어", "뜻", "AI에게는 이렇게"],
+      "head": [
+        "용어",
+        "뜻",
+        "AI에게는 이렇게"
+      ],
       "rows": [
-        ["레포지토리 (repo)", "프로젝트 보관함 (GitHub의 폴더)", "\"이 폴더를 깃 저장소로 만들어줘\""],
-        ["커밋 (commit)", "지금 상태를 저장한 세이브 포인트", "\"지금 상태를 '요약표 완성'으로 커밋해줘\""],
-        ["푸시 (push)", "내 PC의 커밋을 GitHub로 올리기", "\"GitHub에 푸시해줘\""],
-        ["풀 (pull)", "GitHub의 최신 상태를 내 PC로", "\"최신 코드를 풀 받아줘\""],
-        ["브랜치 (branch)", "본 줄기를 건드리지 않는 실험용 갈래", "\"새 기능은 브랜치를 만들어서 해줘\""]
+        [
+          "레포지토리 (repo)",
+          "프로젝트 보관함 (GitHub의 폴더)",
+          "\"이 폴더를 깃 저장소로 만들어줘\""
+        ],
+        [
+          "커밋 (commit)",
+          "지금 상태를 저장한 세이브 포인트",
+          "\"지금 상태를 '요약표 완성'으로 커밋해줘\""
+        ],
+        [
+          "푸시 (push)",
+          "내 PC의 커밋을 GitHub로 올리기",
+          "\"GitHub에 푸시해줘\""
+        ],
+        [
+          "풀 (pull)",
+          "GitHub의 최신 상태를 내 PC로",
+          "\"최신 코드를 풀 받아줘\""
+        ],
+        [
+          "브랜치 (branch)",
+          "본 줄기를 건드리지 않는 실험용 갈래",
+          "\"새 기능은 브랜치를 만들어서 해줘\""
+        ]
       ],
       "tip": "망가졌을 때: \"마지막 커밋 상태로 되돌려줘\" — 커밋을 자주 할수록 안전합니다."
     },
@@ -52,10 +99,21 @@
       "type": "steps",
       "title": "GitHub 레포지토리 만들기",
       "steps": [
-        { "t": "github.com 로그인 → 오른쪽 위 + → New repository" },
-        { "t": "Repository name 입력", "d": "영문·숫자·하이픈 (예: sales-summary)" },
-        { "t": "Public / Private 선택", "d": "업무 자료·고객 정보가 조금이라도 있으면 Private" },
-        { "t": "Create repository → 주소 복사", "d": "https://github.com/내아이디/sales-summary.git" }
+        {
+          "t": "github.com 로그인 → 오른쪽 위 + → New repository"
+        },
+        {
+          "t": "Repository name 입력",
+          "d": "영문·숫자·하이픈 (예: sales-summary)"
+        },
+        {
+          "t": "Public / Private 선택",
+          "d": "업무 자료·고객 정보가 조금이라도 있으면 Private"
+        },
+        {
+          "t": "Create repository → 주소 복사",
+          "d": "https://github.com/내아이디/sales-summary.git"
+        }
       ]
     },
     {
@@ -68,9 +126,33 @@
       "type": "cols",
       "title": "GitHub에 올리면 안 되는 것",
       "cols": [
-        { "head": "절대 금지", "tone": "accent", "items": [".env (API 키·비밀번호)", "고객·학생 개인정보가 담긴 자료", "회사 기밀 문서 원본"] },
-        { "head": ".gitignore로 제외", "tone": "muted", "items": ["material/ · output/ (실제 자료)", "node_modules/ · .venv/ (설치 파일)", "build/ · dist/ (빌드 결과물)"] },
-        { "head": "실수로 올렸다면", "tone": "brand", "items": ["키는 즉시 발급처에서 폐기·재발급", "레포를 Private으로 전환", "강사에게 공유 — 기록 정리 도움"] }
+        {
+          "head": "절대 금지",
+          "tone": "accent",
+          "items": [
+            ".env (API 키·비밀번호)",
+            "고객·학생 개인정보가 담긴 자료",
+            "회사 기밀 문서 원본"
+          ]
+        },
+        {
+          "head": ".gitignore로 제외",
+          "tone": "muted",
+          "items": [
+            "material/ · output/ (실제 자료)",
+            "node_modules/ · .venv/ (설치 파일)",
+            "build/ · dist/ (빌드 결과물)"
+          ]
+        },
+        {
+          "head": "실수로 올렸다면",
+          "tone": "brand",
+          "items": [
+            "키는 즉시 발급처에서 폐기·재발급",
+            "레포를 Private으로 전환",
+            "강사에게 공유 — 기록 정리 도움"
+          ]
+        }
       ]
     },
     {
@@ -83,12 +165,25 @@
       "type": "steps",
       "title": "연습 · 자기소개 페이지 30초 배포",
       "steps": [
-        { "t": "내 PC에 test 폴더 만들고 VS Code로 열기" },
-        { "t": "에이전트: \"나를 소개하는 웹페이지를 아주 간단하게 만들어줘\"" },
-        { "t": "GitHub에 새 레포 만들고 \"이 레포로 푸시해줘\"" },
-        { "t": "vercel.com → Continue with GitHub → Add New → Project" },
-        { "t": "방금 만든 레포 Import → Deploy" },
-        { "t": "Congratulations! → 도메인 링크 접속", "d": "프로젝트 화면의 Domains 링크가 공식 배포 주소" }
+        {
+          "t": "내 PC에 test 폴더 만들고 VS Code로 열기"
+        },
+        {
+          "t": "에이전트: \"나를 소개하는 웹페이지를 아주 간단하게 만들어줘\""
+        },
+        {
+          "t": "GitHub에 새 레포 만들고 \"이 레포로 푸시해줘\""
+        },
+        {
+          "t": "vercel.com → Continue with GitHub → Add New → Project"
+        },
+        {
+          "t": "방금 만든 레포 Import → Deploy"
+        },
+        {
+          "t": "Congratulations! → 도메인 링크 접속",
+          "d": "프로젝트 화면의 Domains 링크가 공식 배포 주소"
+        }
       ],
       "tip": "이후로는 GitHub에 푸시할 때마다 Vercel이 자동으로 다시 배포합니다."
     },
@@ -96,23 +191,55 @@
       "type": "steps",
       "title": "배포 오류 해결 루프",
       "steps": [
-        { "t": "Vercel 프로젝트 → Deployments → 실패한 배포 클릭" },
-        { "t": "Build Logs의 빨간 오류 부분을 복사하거나 캡처" },
-        { "t": "에이전트에게: \"Vercel 배포 오류야. 원인을 설명하고 고친 다음 다시 푸시해줘\" + 붙여넣기" },
-        { "t": "푸시되면 Vercel이 자동 재배포 → 성공 확인" }
+        {
+          "t": "Vercel 프로젝트 → Deployments → 실패한 배포 클릭"
+        },
+        {
+          "t": "Build Logs의 빨간 오류 부분을 복사하거나 캡처"
+        },
+        {
+          "t": "에이전트에게: \"Vercel 배포 오류야. 원인을 설명하고 고친 다음 다시 푸시해줘\" + 붙여넣기"
+        },
+        {
+          "t": "푸시되면 Vercel이 자동 재배포 → 성공 확인"
+        }
       ],
       "tip": "로컬에서는 되는데 배포에서 안 될 때 가장 흔한 원인: 환경변수(.env)를 Vercel에 안 넣은 경우 → Settings → Environment Variables"
     },
     {
       "type": "table",
       "title": "내 도구는 어디에 배포하나?",
-      "head": ["형태", "배포 방법", "비고"],
+      "head": [
+        "형태",
+        "배포 방법",
+        "비고"
+      ],
       "rows": [
-        ["HTML 단일 파일 · 정적 사이트", "Vercel / Netlify / GitHub Pages", "가장 쉬움"],
-        ["Next.js 등 웹앱", "Vercel", "API·로그인·DB까지 가능"],
-        ["Streamlit (Python 웹)", "Streamlit Community Cloud", "GitHub 레포 연결"],
-        ["Python 데스크톱 앱", "PyInstaller로 exe → 파일 공유", "웹 배포 대상 아님"],
-        ["엑셀 VBA · Apps Script", "파일 / 시트 공유", "Apps Script는 웹앱 배포도 가능"]
+        [
+          "HTML 단일 파일 · 정적 사이트",
+          "Vercel / Netlify / GitHub Pages",
+          "가장 쉬움"
+        ],
+        [
+          "Next.js 등 웹앱",
+          "Vercel",
+          "API·로그인·DB까지 가능"
+        ],
+        [
+          "Streamlit (Python 웹)",
+          "Streamlit Community Cloud",
+          "GitHub 레포 연결"
+        ],
+        [
+          "Python 데스크톱 앱",
+          "PyInstaller로 exe → 파일 공유",
+          "웹 배포 대상 아님"
+        ],
+        [
+          "엑셀 VBA · Apps Script",
+          "파일 / 시트 공유",
+          "Apps Script는 웹앱 배포도 가능"
+        ]
       ]
     },
     {
@@ -124,12 +251,37 @@
     {
       "type": "table",
       "title": "데이터 저장 방식 고르기",
-      "head": ["방식", "이럴 때", "장점", "주의"],
+      "head": [
+        "방식",
+        "이럴 때",
+        "장점",
+        "주의"
+      ],
       "rows": [
-        ["브라우저 저장 (localStorage)", "나 혼자, 한 PC에서", "설정 없음", "다른 PC·브라우저에선 안 보임"],
-        ["구글 시트 + Apps Script", "팀이 시트로 결과를 보고 싶을 때", "익숙함 · 무료", "동시 입력 많으면 느림"],
-        ["Supabase", "로그인·여러 사용자·실시간 공동 작업", "DB+로그인+파일 저장 한 번에", "무료 플랜은 장기 미사용 시 일시정지"],
-        ["Neon + Vercel Blob", "Vercel 배포 웹앱", "Vercel에서 클릭 몇 번으로 연결", "용량·전송량 한도 확인"]
+        [
+          "브라우저 저장 (localStorage)",
+          "나 혼자, 한 PC에서",
+          "설정 없음",
+          "다른 PC·브라우저에선 안 보임"
+        ],
+        [
+          "구글 시트 + Apps Script",
+          "팀이 시트로 결과를 보고 싶을 때",
+          "익숙함 · 무료",
+          "동시 입력 많으면 느림"
+        ],
+        [
+          "Supabase",
+          "로그인·여러 사용자·실시간 공동 작업",
+          "DB+로그인+파일 저장 한 번에",
+          "무료 플랜은 장기 미사용 시 일시정지"
+        ],
+        [
+          "Neon + Vercel Blob",
+          "Vercel 배포 웹앱",
+          "Vercel에서 클릭 몇 번으로 연결",
+          "용량·전송량 한도 확인"
+        ]
       ],
       "tip": "이 수업 웹앱은 Neon(DB) + Vercel Blob(이미지·영상)으로 만들어졌습니다. 기수가 쌓여도 데이터가 계속 남습니다."
     },
@@ -143,11 +295,26 @@
       "title": "도구에 AI 기능 붙이기 (API)",
       "lead": "도구 안에서 버튼을 누르면 AI가 답하게 하려면 API 키가 필요합니다.",
       "steps": [
-        { "t": "API 키 발급", "d": "Anthropic Console / OpenAI Platform / Google AI Studio — 사용한 만큼 과금" },
-        { "t": "키는 서버 쪽에서만", "d": "HTML 파일 안에 키를 넣으면 누구나 볼 수 있음 → 웹앱의 API 라우트(서버)에서 호출" },
-        { "t": ".env.local + Vercel 환경변수", "d": "ANTHROPIC_API_KEY=... 형태로 저장, GitHub에는 올리지 않음" },
-        { "t": "사용량 한도 설정", "d": "콘솔에서 월 한도를 꼭 걸어두기" },
-        { "t": "출력 형식 고정", "d": "\"반드시 JSON으로\" 같은 규칙 → 도구가 결과를 안정적으로 처리" }
+        {
+          "t": "API 키 발급",
+          "d": "Anthropic Console / OpenAI Platform / Google AI Studio — 사용한 만큼 과금"
+        },
+        {
+          "t": "키는 서버 쪽에서만",
+          "d": "HTML 파일 안에 키를 넣으면 누구나 볼 수 있음 → 웹앱의 API 라우트(서버)에서 호출"
+        },
+        {
+          "t": ".env.local + Vercel 환경변수",
+          "d": "ANTHROPIC_API_KEY=... 형태로 저장, GitHub에는 올리지 않음"
+        },
+        {
+          "t": "사용량 한도 설정",
+          "d": "콘솔에서 월 한도를 꼭 걸어두기"
+        },
+        {
+          "t": "출력 형식 고정",
+          "d": "\"반드시 JSON으로\" 같은 규칙 → 도구가 결과를 안정적으로 처리"
+        }
       ],
       "tip": "Google AI Studio처럼 무료 사용량이 있는 서비스로 먼저 시험해 볼 수 있습니다."
     },

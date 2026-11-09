@@ -200,11 +200,11 @@ function Body({ s }: { s: Slide }) {
         <Frame>
           <Title lead={s.lead}>{s.title}</Title>
           <div className="overflow-hidden rounded-[0.6em] border border-line">
-            <table className="w-full border-collapse text-[0.8em]">
+            <table className={`w-full border-collapse ${s.head.length >= 5 ? "text-[0.72em]" : "text-[0.8em]"}`}>
               <thead>
                 <tr className="bg-brand text-left text-white">
                   {s.head.map((h, i) => (
-                    <th key={i} className="px-[0.8em] py-[0.45em] font-bold">
+                    <th key={i} className="whitespace-nowrap px-[0.8em] py-[0.45em] font-bold">
                       {h}
                     </th>
                   ))}
@@ -214,7 +214,7 @@ function Body({ s }: { s: Slide }) {
                 {s.rows.map((r, i) => (
                   <tr key={i} className={i % 2 ? "bg-canvas" : "bg-white"}>
                     {r.map((c, j) => (
-                      <td key={j} className={`px-[0.8em] py-[0.42em] align-top whitespace-pre-line ${j === 0 ? "font-semibold" : ""}`}>
+                      <td key={j} className={`px-[0.8em] py-[0.42em] align-top ${c.length <= 8 ? "whitespace-nowrap" : "whitespace-pre-line"} ${j === 0 ? "font-semibold" : ""}`}>
                         {c}
                       </td>
                     ))}

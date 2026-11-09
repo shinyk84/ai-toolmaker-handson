@@ -126,6 +126,7 @@ export default function Workbench({ aiEnabled, uploadCtx, name, cohort }: { aiEn
                     {done[s.no - 1] && !active ? "✓" : s.no}
                   </span>
                   <span className="min-w-0">
+                    <span className={`block text-[11px] font-bold ${active ? "text-accent" : "text-ink-3"}`}>{s.week}</span>
                     <span className={`block whitespace-nowrap text-sm font-bold ${active ? "text-brand" : ""}`}>{s.title}</span>
                     <span className="block truncate text-xs text-ink-3">{s.sub}</span>
                   </span>

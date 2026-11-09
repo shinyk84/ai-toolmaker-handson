@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { STEPS, WEEK_PLAN, stepRange } from "@/lib/workspace";
 
 type Log = { id?: number; week: number; done: string; next_goal: string; help_needed: string; feedback?: string };
 
@@ -47,6 +49,22 @@ export default function ProgressPage() {
           </button>
         ))}
       </div>
+      {(() => {
+        const plan = WEEK_PLAN.find((p) => p.week === week);
+        return plan ? (
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+            <span className="font-semibold text-ink-2">
+              {week}주차 · {plan.title}
+            </span>
+            <span className="text-ink-3">— 웹앱 {stepRange(plan.steps)}:</span>
+            {plan.steps.map((n) => (
+              <Link key={n} href={`/app/workflow?step=${n}`} className="rounded-md bg-brand-soft px-2 py-0.5 text-xs font-semibold text-brand hover:underline">
+                {n}. {STEPS[n - 1].title}
+              </Link>
+            ))}
+          </div>
+        ) : null;
+      })()}
 
       {!loaded ? (
         <div className="mt-6 text-ink-3">불러오는 중…</div>

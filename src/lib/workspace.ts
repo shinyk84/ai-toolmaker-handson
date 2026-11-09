@@ -172,13 +172,27 @@ export function normalizeWorkspace(raw: unknown): WorkspaceData {
 }
 
 export const STEPS = [
-  { no: 1, key: "idea", title: "아이디어", sub: "As-is → To-be" },
-  { no: 2, key: "flow", title: "워크플로우", sub: "단계 분해" },
-  { no: 3, key: "priority", title: "우선순위", sub: "MVP 정하기" },
-  { no: 4, key: "brief", title: "AI 명령서", sub: "요구사항·CLAUDE.md" },
-  { no: 5, key: "build", title: "제작 기록", sub: "로그·배포·성과" },
-  { no: 6, key: "deck", title: "발표", sub: "PT 만들기" },
+  { no: 1, key: "idea", title: "아이디어", sub: "As-is → To-be", week: "1주차" },
+  { no: 2, key: "flow", title: "워크플로우", sub: "단계 분해", week: "1주차" },
+  { no: 3, key: "priority", title: "우선순위", sub: "MVP 정하기", week: "1주차" },
+  { no: 4, key: "brief", title: "AI 명령서", sub: "요구사항·CLAUDE.md", week: "2주차" },
+  { no: 5, key: "build", title: "제작 기록", sub: "로그·배포·성과", week: "2~4주차" },
+  { no: 6, key: "deck", title: "발표", sub: "PT 만들기", week: "4주차" },
 ] as const;
+
+/**
+ * 주차(수업) ↔ 단계(워크스페이스) 연결표.
+ * 수업은 4주, 워크스페이스는 6단계 — 매주 어떤 단계를 하는지 화면 곳곳에서 이 표를 기준으로 보여줍니다.
+ */
+export const WEEK_PLAN = [
+  { week: 1, title: "문제를 찾고, 일을 쪼갠다", steps: [1, 2, 3], todo: ["아이디어를 As-is/To-be로 쓰고 1개 확정", "워크플로우 6~10단계로 쪼개기", "★MVP 단계와 만들 형태 정하기"] },
+  { week: 2, title: "에이전트 AI로 첫 MVP 만들기", steps: [4, 5], todo: ["AI 명령서 작성 → 첫 요청문·CLAUDE.md 복사", "내 PC에서 v0.1 만들기", "제작 기록에 요청·결과·스크린샷 남기기"] },
+  { week: 3, title: "배포하고, 데이터를 붙인다", steps: [5], todo: ["GitHub 주소·배포 주소 등록", "제작 기록 계속 쌓기", "실제 자료로 써보고 도입 전/후 시간 측정"] },
+  { week: 4, title: "다듬고, 검증하고, 발표한다", steps: [5, 6], todo: ["성과(도입 전/후 시간) 입력", "발표 PT 다듬고 데모 화면 선택", "기수 갤러리에 공유 → 발표"] },
+] as const;
+
+export const stepRange = (steps: readonly number[]) =>
+  steps.length > 1 ? `${steps[0]}~${steps[steps.length - 1]}단계` : `${steps[0]}단계`;
 
 /** 단계별 완료 여부(관리자 대시보드·학습자 진행률 공용) */
 export function stepCompletion(w: WorkspaceData): boolean[] {

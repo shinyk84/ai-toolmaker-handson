@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { DECKS } from "@/content/decks";
 import { getSession } from "@/lib/auth";
+import { STEPS, WEEK_PLAN, stepRange } from "@/lib/workspace";
 
 export default async function ClassIndex() {
   const s = await getSession();
@@ -24,6 +25,19 @@ export default async function ClassIndex() {
             </div>
             <h2 className="mt-3 text-xl font-bold group-hover:text-brand">{d.title.replace(/^\d주차 · /, "")}</h2>
             <p className="mt-1 text-sm text-ink-3">{d.subtitle}</p>
+            {(() => {
+              const plan = WEEK_PLAN.find((p) => p.week === d.week);
+              return plan ? (
+                <div className="mt-3 flex flex-wrap items-center gap-1.5 text-xs">
+                  <span className="font-bold text-ink-3">웹앱 {stepRange(plan.steps)}</span>
+                  {plan.steps.map((n) => (
+                    <span key={n} className="rounded-md bg-brand-soft px-2 py-0.5 font-semibold text-brand">
+                      {n}. {STEPS[n - 1].title}
+                    </span>
+                  ))}
+                </div>
+              ) : null;
+            })()}
             <ul className="mt-4 space-y-1 text-sm text-ink-2">
               {d.goal.map((g, i) => (
                 <li key={i} className="flex gap-2">
