@@ -57,6 +57,34 @@ export function CopyButton({ text, label = "복사", className = "btn btn-soft b
   );
 }
 
+/** '?' 도움말: 마우스를 올리거나 클릭(모바일)하면 설명 말풍선이 열림 */
+export function HelpTip({ title, children, align = "left" }: { title?: string; children: React.ReactNode; align?: "left" | "right" }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span className="relative inline-flex" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <button
+        type="button"
+        aria-label={title ? `${title} 설명` : "설명"}
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        onBlur={() => setOpen(false)}
+        className="flex h-[18px] w-[18px] items-center justify-center rounded-full border border-ink-3/50 text-[11px] font-bold leading-none text-ink-3 transition hover:border-brand-2 hover:text-brand"
+      >
+        ?
+      </button>
+      {open && (
+        <span
+          role="tooltip"
+          className={`absolute top-6 z-40 w-[min(340px,80vw)] rounded-xl border border-line bg-white p-4 text-left text-[13px] font-normal leading-relaxed text-ink-2 shadow-lg ${align === "right" ? "right-0" : "left-0"}`}
+        >
+          {title && <span className="mb-1.5 block text-sm font-bold text-ink">{title}</span>}
+          {children}
+        </span>
+      )}
+    </span>
+  );
+}
+
 export function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <div>

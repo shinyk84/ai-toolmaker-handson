@@ -1,7 +1,7 @@
 "use client";
 
 import { TOOL_OPTIONS, emptyIdea, type Idea } from "@/lib/workspace";
-import { Field, NumInput, StepHeader } from "../ui";
+import { Field, HelpTip, NumInput, StepHeader } from "../ui";
 import AiAction from "./AiAction";
 import type { StepProps } from "./Workbench";
 
@@ -163,6 +163,35 @@ export default function StepIdea({ data, update, aiEnabled }: StepProps) {
   );
 }
 
+/** ICE 점수 설명 말풍선 */
+function IceHelp() {
+  return (
+    <HelpTip title="ICE 점수란?">
+      <span className="block">여러 아이디어 중 <b>무엇부터 만들지</b> 고르는 간단한 평가법입니다. 세 가지를 1~10점으로 매겨 더합니다(30점 만점).</span>
+      <span className="mt-2.5 block">
+        <b className="text-ink">I · Impact (효과)</b>
+        <br />
+        만들면 얼마나 도움이 되나? 자주 하는 일일수록, 시간이 많이 드는 일일수록 높게.
+      </span>
+      <span className="mt-2 block">
+        <b className="text-ink">C · Confidence (확신)</b>
+        <br />
+        AI로 정말 될 것 같은가? 넣을 자료와 원하는 결과물이 분명할수록 높게.
+      </span>
+      <span className="mt-2 block">
+        <b className="text-ink">E · Ease (쉬움)</b>
+        <br />
+        4주 안에 작은 버전을 만들 수 있나? 쉬울수록 높게.
+      </span>
+      <span className="mt-2.5 block rounded-lg bg-accent-soft px-2.5 py-2 text-[12px] text-[#7a3d00]">
+        예) 주 3회 2시간 걸리는 엑셀 취합 → 효과 8 · 확신 7 · 쉬움 7 = 22점
+        <br />
+        점수가 비슷하면 <b>쉬움(E)</b>이 높은 쪽을 고르세요. 첫 도구는 끝까지 완성해 보는 경험이 가장 중요합니다.
+      </span>
+    </HelpTip>
+  );
+}
+
 const clamp = (v: unknown) => Math.min(10, Math.max(1, Math.round(Number(v) || 1)));
 
 function SelfScore({ idea, onChange }: { idea: Idea; onChange: (s: Idea["self"]) => void }) {
@@ -174,7 +203,9 @@ function SelfScore({ idea, onChange }: { idea: Idea; onChange: (s: Idea["self"])
   ];
   return (
     <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-      <span className="text-sm font-semibold text-ink-2">내 ICE 점수</span>
+      <span className="flex items-center gap-1.5 text-sm font-semibold text-ink-2">
+        내 ICE 점수 <IceHelp />
+      </span>
       {items.map(([k, label]) => (
         <label key={k} className="flex items-center gap-2 text-xs text-ink-2">
           {label}
@@ -193,6 +224,7 @@ function AiResult({ ai }: { ai: NonNullable<Idea["ai"]> }) {
     <div className="mt-4 rounded-xl bg-brand-soft/60 p-4">
       <div className="flex flex-wrap items-center gap-4">
         <span className="rounded-full bg-brand px-2.5 py-0.5 text-xs font-bold text-white">AI 평가</span>
+        <IceHelp />
         {(
           [
             ["Impact", ai.impact],
